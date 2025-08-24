@@ -1,0 +1,122 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #ff512f);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fire-like animation effect */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 80%, rgba(255,69,0,0.2), transparent 60%),
+                radial-gradient(circle at 20% 70%, rgba(255,140,0,0.15), transparent 70%),
+                radial-gradient(circle at 80% 75%, rgba(255,215,0,0.15), transparent 80%);
+    animation: fireMove 8s linear infinite;
+    z-index: 0;
+}
+
+@keyframes fireMove {
+    0% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-20px) scale(1.1); opacity: 0.8; }
+    100% { transform: translateY(0) scale(1); opacity: 0.6; }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 2.5rem;
+    text-align: center;
+    z-index: 1;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.07);
+    padding: 20px;
+    border-radius: 16px;
+    margin: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Minimal inputs */
+input {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    width: 65%;
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+    outline: none;
+}
+
+/* Minimal aesthetic buttons */
+button {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 94, 98, 0.4);
+    z-index: 1;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    box-shadow: 0 6px 14px rgba(255, 94, 98, 0.6);
+    transform: translateY(-2px);
+}
+
+#network {
+    width: 100%;
+    max-width: 900px;
+    height: 550px;
+    background: rgba(8, 145, 236, 0.3);
+    border-radius: 16px;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.popup {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+    max-width: 600px;
+    z-index: 1000;
+    text-align: left;
+    font-size: 14px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 0 15px rgba(255, 94, 98, 0.6);
+}
